@@ -38,6 +38,23 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+.teaser-float-img{
+  float: left;
+  width: 45%;          /* 控制图片占比：30%~45%都常用 */
+  max-width: 420px;    /* 避免大屏太夸张 */
+  margin: 0 1.25rem 0.75rem 0;  /* 右边&下方留白，让文字呼吸 */
+  height: auto;
+}
+
+@media (max-width: 768px){
+  .teaser-float-img{
+    float: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 1rem 0; /* 小屏自动变成上图下文，更舒服 */
+  }
+}
+
 
 /* Modern Button Styles */
 .button {
@@ -110,6 +127,41 @@ body {
 
 .teaser {
   font-family: 'Inter', sans-serif;
+}
+/* 收紧第一页 hero（标题作者区）的上下留白 */
+.hero-top .hero-body{
+  padding-top: 2rem;     /* 你可以改成 1.5rem 更紧 */
+  padding-bottom: 0.75rem;
+}
+
+/* 收紧 teaser 区块的上下留白 */
+.teaser-compact .hero-body{
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+}
+
+/* 额外：避免段落默认 margin 把间距撑大 */
+.teaser-wrap p{
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+/* 如果你仍觉得两段之间有缝，再加这一条 */
+.hero-top{
+  margin-bottom: 0;
+}
+.teaser-compact{
+  margin-top: 0;
+}
+
+/* Author name color */
+.publication-authors .author-block a{
+  color: #6ea3dd !important;
+}
+
+/* Optional: hover color (slightly darker) */
+.publication-authors .author-block a:hover{
+  color: #6ea3dd !important;
 }
 
 
