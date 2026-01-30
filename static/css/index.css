@@ -137,7 +137,7 @@ body {
 /* 收紧 teaser 区块的上下留白 */
 .teaser-compact .hero-body{
   padding-top: 0.5rem;
-  padding-bottom: 0.75rem;
+  padding-bottom: 1.75rem;
 }
 
 /* 额外：避免段落默认 margin 把间距撑大 */

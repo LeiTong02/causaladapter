@@ -295,7 +295,7 @@
         <p class="is-size-5">
         Counterfactual generation is specified by two standard inputs: a <strong>predefined causal graph</strong> and <strong>semantic attributes</strong> that define the intervention.
         <strong>Causal-Adapter</strong> instantiates an SCM over the conditioning variables and tames an off-the-shelf text-to-image diffusion backbone to disentangle causal factors in the text-embedding space, generating faithful counterfactual images.
-        It can integrates seamlessly with Stable Diffusion 1.5/3, FLUX etc., <strong>with lightweight adaptation</strong>.
+        It can integrates seamlessly with Stable Diffusion 1.5/3, FLUX etc., with lightweight adaptation.
       </p>
 
 
@@ -306,22 +306,73 @@
   </div>
 </section>
 
-<!-- Paper abstract -->
-<section class="section hero is-light">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>
-        <div class="content has-text-justified">
-          <!-- TODO: Replace with your paper abstract -->
+
+<section class="hero teaser" style="background-color:#efeff081;">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <!-- Title and tagline, remains centered -->
+        <h4 class="subtitle has-text-centered" style="font-size:1.1rem;">
+          <strong>Taming T2I Diffusion for Counterfactual Generation</strong> <br />
+          <em>“An off-the-shelf text-to-image diffusion model can be tamed with causal semantic attributes to generate faithful counterfactual images”</em>
+        </h4>
+        <!-- Centered Abstract Container with fixed max width -->
+        <div class="abstract-summary" style="max-width: 1920px; margin: 0 auto; text-align: center;">
+          <!-- <h2>Abstract</h2> -->
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Causal-Adapter augments an SCM with prompt-aligned injection and a conditioned token contrastive loss to disentangle attributes, reduce spurious correlations, and achieve SOTA on synthetic and real-world datasets.
           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+          <p>
+            <strong>Key highlights:</strong>
+          </p>
+  
+          <!-- Bullet points also centered -->
+          <ul style="list-style-position: inside;">
+            <li><strong>Significant Gains:</strong> +50% intervention effectiveness; +87% image quality</li>
+            <li><strong>Low Compute:</strong> Finetunes in 10 hours on 1 NVIDIA A10G (24GB).</li>
+            <li><strong>Model-Agnostic:</strong> Works with Stable Diffusion 1.5, FLUX.1, and more.</li>
+            <li><strong>Precise Attention:</strong> Better semantic–spatial alignment in diffusion latents.</li>
+            <li><strong>Causal Graph Support:</strong> Supports learning causal structure (graph) from scratch.</li>
+            <li><strong>Open-Source:</strong> Code, data & finetuned models will be available.</li>
+          </ul>
+  
+          <!-- Expand/Collapse Toggle Button -->
+          <button onclick="toggleAbstract()" style="margin-top:10px;">
+            Read Abstract
+          </button>
+  
+          <!-- Hidden Full Abstract -->
+          <div id="full-abstract" style="display: none; margin-top:10px;">
+            <p>
+              We present Causal-Adapter, a modular framework that adapts frozen text-to-image diffusion for counterfactual generation. Our method enables causal interventions on target attributes, consistently propagating their effects to causal dependents without altering the core identity of the image. In contrast to prior approaches that rely on prompt engineering without explicit causal mechanism, Causal-Adapter leverages structural causal modeling augmented with two attribute regularization strategies: prompt-aligned injection, which aligns causal attributes with textual embeddings for precise semantic control, and a conditioned token contrastive loss to disentangle attribute factors and reduce spurious correlations. Causal-Adapter achieves state-of-the-art performance on both synthetic and real-world datasets, with up to 91% MAE reduction on Pendulum for accurate attribute control and 87% FID reduction on ADNI for high-fidelity MRI generation. These results show that our approach enables robust, generalizable counterfactual editing with faithful attribute modification and strong identity preservation.
+            </p>
+          </div>
+        </div><!-- end of abstract-summary -->
+      </div><!-- end of hero-body -->
+    </div><!-- end of container -->
+  </section>
+
+  <script>
+    function toggleAbstract() {
+      const fullAbs = document.getElementById('full-abstract');
+      if (fullAbs.style.display === 'none') {
+        fullAbs.style.display = 'block';
+      } else {
+        fullAbs.style.display = 'none';
+      }
+    }
+  </script>
+  
+  <script>
+    function toggleAbstract() {
+      const fullAbs = document.getElementById('full-abstract');
+      if (fullAbs.style.display === 'none') {
+        fullAbs.style.display = 'block';
+      } else {
+        fullAbs.style.display = 'none';
+      }
+    }
+  </script>
+
 <!-- End paper abstract -->
 
 
@@ -454,12 +505,11 @@
           <span class="copy-text">Copy</span>
         </button>
       </div>
-      <pre id="bibtex-code"><code>@article{YourPaperKey2024,
-  title={Your Paper Title Here},
-  author={First Author and Second Author and Third Author},
-  journal={Conference/Journal Name},
-  year={2024},
-  url={https://your-domain.com/your-project-page}
+      <pre id="bibtex-code"><code>@article{tong2025causal,
+  title={Causal-Adapter: Taming Text-to-Image Diffusion for Faithful Counterfactual Generation},
+  author={Tong, Lei and Liu, Zhihua and Lu, Chaochao and Oglic, Dino and Diethe, Tom and Teare, Philip and Tsaftaris, Sotirios A and Jin, Chen},
+  journal={arXiv preprint arXiv:2509.24798},
+  year={2025}
 }</code></pre>
     </div>
 </section>
