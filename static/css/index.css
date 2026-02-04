@@ -774,7 +774,7 @@ code {
 }
 /* Full-width but with side gutters */
 .page-wide {
-  width: 85%;   /* ✅ 最大到 1600px，超大屏不至于太散 */
+  width: 82%;   /* ✅ 最大到 1600px，超大屏不至于太散 */
   margin: 0 auto;
   padding: 0 24px;            /* ✅ 左右边距（你要“留一点边距”） */
 }
@@ -811,7 +811,7 @@ code {
 
 /* Title styling */
 .trv-title {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   margin-bottom: 10px;
   min-height: 3em;
   width: 100%; /* Full width for text */
