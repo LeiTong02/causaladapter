@@ -393,6 +393,7 @@ body {
   margin-bottom: 1.5rem;
 }
 
+
 /* Footer Improvements */
 .footer {
   background: var(--background-secondary);
@@ -649,6 +650,226 @@ code {
   flex-shrink: 0;
 }
 
+.body-text {
+  float: right;
+  font-size: 18px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.dev-img-demo {
+  /*vertical-align: middle;*/
+   /*vertical-align: middle;*/
+  width: 40%;
+  /*flex-basis: 40%*/
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.dev-img {
+  /*vertical-align: middle;*/
+   /*vertical-align: middle;*/
+   width: 25%;
+  /*flex-basis: 40%*/
+  margin-left: 2.5%;
+  margin-right: auto;
+}
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider2 {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider2:hover {
+  opacity: 1;
+}
+
+.slider2::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider2::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider3 {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider3:hover {
+  opacity: 1;
+}
+
+.slider3::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+
+.slider3::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+.body-text {
+  margin: 10px 0 18px;
+  text-align: center;
+}
+/* Full-width but with side gutters */
+.page-wide {
+  width: min(1600px, 100%);   /* ✅ 最大到 1600px，超大屏不至于太散 */
+  margin: 0 auto;
+  padding: 0 24px;            /* ✅ 左右边距（你要“留一点边距”） */
+}
+
+
+
+
+.trv-grid {
+  display: grid;
+  grid-template-columns: 60% 20% 20%;
+  gap: 18px;
+  margin-left: 5%;
+  margin-right: 5%;
+  align-items: start;
+  justify-content: center;
+  text-align: center;
+}
+
+/* each cell */
+.trv-cell {
+  padding: 10px 10px 12px;
+  border-radius: 12px;
+  justify-content: center;
+  text-align: center;
+}
+.trv-cell-demo{
+  padding: 10px 10px 12px;
+  border-radius: 12px;
+}
+/* First-column demo: no grey background */
+.trv-cell-plain {
+  background: transparent !important;
+}
+
+/* 可选：如果你希望 demo 图更“贴边”，去掉 padding */
+.trv-cell-plain {
+  padding: 0 !important;
+}
+
+
+
+
+/* 默认图片：用于第一列 demo（可以满宽或按你原需求） */
+.trv-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+  display: block;
+}
+
+
+
+/* slider */
+.trv-slider {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* meta */
+.trv-meta {
+  font-size: 0.85rem;
+  opacity: 0.75;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* highlight token */
+.hl {
+  background-color: #f1b492;
+  color: #000;
+  padding: 0 4px;
+  border-radius: 6px;
+}
+
+/* responsive: stack to 1 col on small screens */
+@media (max-width: 900px) {
+  .trv-grid {
+    grid-template-columns: 1fr;
+  }
+  .trv-cell {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+}
+
+
+.dev-text {
+  font-style: italic;
+  float: right;
+  font-size: 24px;
+  width: 25%;
+  margin-left: 0%;
+  margin-right: auto;
+  align-items: center; /* Centers items vertically */
+  margin-top: 5%;
+}
 
 /* Mobile Responsive Improvements */
 @media screen and (max-width: 768px) {
