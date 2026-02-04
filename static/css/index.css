@@ -772,7 +772,7 @@ code {
 }
 /* Full-width but with side gutters */
 .page-wide {
-  width: min(1600px, 100%);   /* ✅ 最大到 1600px，超大屏不至于太散 */
+  width: 75%;   /* ✅ 最大到 1600px，超大屏不至于太散 */
   margin: 0 auto;
   padding: 0 24px;            /* ✅ 左右边距（你要“留一点边距”） */
 }
@@ -844,7 +844,20 @@ code {
   margin-top: 10px;
   flex-shrink: 0;
 }
+/* Labels below slider */
+.trv-slider-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 4px;
+}
 
+.trv-slider-label-left,
+.trv-slider-label-right {
+  font-size: 0.75rem;  /* Small font */
+  color: #666;
+  opacity: 0.8;
+}
 /* Highlight token */
 .hl {
   background-color: #f1b492;
