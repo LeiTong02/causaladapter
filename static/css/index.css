@@ -772,7 +772,7 @@ code {
 }
 /* Full-width but with side gutters */
 .page-wide {
-  width: 76%;   /* ✅ 最大到 1600px，超大屏不至于太散 */
+  width: 81%;   /* ✅ 最大到 1600px，超大屏不至于太散 */
   margin: 0 auto;
   padding: 0 24px;            /* ✅ 左右边距（你要“留一点边距”） */
 }
