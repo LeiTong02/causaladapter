@@ -377,8 +377,12 @@
 <section class="section">
   <div class="page-wide ">
       
-        <h2 class="title is-3 has-text-centered">Key Insights and Figures</h2>
-
+        <h2 class="title is-3 has-text-centered">Disentangling Semantic Attributes and Propagating Causal Effects</h2>
+        <div class="abstract-summary" style="max-width: 1300px; margin: 0 auto; text-align: center;">
+        <p>
+          Causal-Adapter enables faithful counterfactual image generation by intervening on specific attributes and propagating causal effects through the causal graph.
+        </p>
+        </div>
     <!-- 3x3 Grid -->
     <div class="trv-grid">
 
@@ -392,12 +396,12 @@
           Human: "What if the <span class="hl">pendulum angle</span> had been different?"
         </div>
 
-        <img class="trv-img" id="img_skin3d"
+        <img class="trv-img" id="img_pend"
             src="./static/images/traverse/pendulum/pendulum_13.png" alt="Pendulum traversal">
 
-        <input class="slider2 trv-slider" id="range_skin3d" type="range"
+        <input class="slider2 trv-slider" id="range_pend" type="range"
               min="0" max="29" value="13"
-              data-target-img="img_skin3d"
+              data-target-img="img_pend"
               data-prefix="./static/images/traverse/pendulum/pendulum_"
               data-suffix=".png"
               data-preload="true"
@@ -414,86 +418,114 @@
           Human: "What if the <span class="hl">light position</span> had been different?"
         </div>
 
-        <img class="trv-img" id="img_skin3d_model"
+        <img class="trv-img" id="img_light"
             src="./static/images/traverse/light/light_10.png" alt="Light traversal">
 
-        <input class="slider2 trv-slider" id="range_skin3d_model" type="range"
+        <input class="slider2 trv-slider" id="range_light" type="range"
               min="0" max="29" value="10"
-              data-target-img="img_skin3d_model"
+              data-target-img="img_light"
               data-prefix="./static/images/traverse/light/light_"
               data-suffix=".png"
               data-preload="true"
               data-preload-radius="2">
 
         <!-- <div class="trv-meta"><span data-step-for="range_skin3d_model">0</span> / 48</div> -->
+
       </div>
+
+       <!-- Col 1 (static / demo) --> 
+        <div class="trv-cell-plain"> <img class="trv-img" src="./static/images/traverse_illustration/traverse_celeba_illustration.png" alt="Demo image"> </div>
+       <!-- Col 2 (Human + slider) -->
+      <div class="trv-cell">
+        <div class="trv-title">
+          Human: "What if the <span class="hl">human age</span> had been different?"
+        </div>
+
+        <img class="trv-img" id="img_celeba_age"
+            src="./static/images/traverse/age/age_2.png" alt="CelebA age traversal">
+
+        <input class="slider2 trv-slider" id="range_celeba_age" type="range"
+              min="2" max="30" value="2"
+              data-target-img="img_celeba_age"
+              data-prefix="./static/images/traverse/age/age_"
+              data-suffix=".png"
+              data-preload="true"
+              data-preload-radius="2"
+              data-preload-chunk="6"
+              data-preload-delay="25">
+
+        <!-- <div class="trv-meta"><span data-step-for="range_skin3d">0</span> / 48</div> -->
+      </div>
+
+      <!-- Col 3 (Model + slider) -->
+      <div class="trv-cell">
+        <div class="trv-title">
+          Human: "What if the <span class="hl">human gender</span> had been different?"
+        </div>
+
+        <img class="trv-img" id="img_gender"
+            src="./static/images/traverse/gender/gender_2.png" alt="Gender traversal">
+
+        <input class="slider2 trv-slider" id="range_gender" type="range"
+              min="2" max="29" value="2"
+              data-target-img="img_gender"
+              data-prefix="./static/images/traverse/gender/gender_"
+              data-suffix=".png"
+              data-preload="true"
+              data-preload-radius="2">
+
+        <!-- <div class="trv-meta"><span data-step-for="range_skin3d_model">0</span> / 48</div> -->
+
+      </div>
+
+      <!-- Col 1 (static / demo) --> 
+        <div class="trv-cell-plain"> <img class="trv-img" src="./static/images/traverse_illustration/traverse_adni_illustration.png" alt="Demo image"> </div>
+       <!-- Col 2 (Human + slider) -->
+      <div class="trv-cell">
+        <div class="trv-title">
+          Human: "What if the <span class="hl">age</span> had been different?"
+        </div>
+
+        <img class="trv-img" id="img_adni_age"
+            src="./static/images/traverse/adni_age/adni_age_31.png" alt="ADNI age traversal">
+
+        <input class="slider2 trv-slider" id="range_adni_age" type="range"
+              min="1" max="31" value="31"
+              data-target-img="img_adni_age"
+              data-prefix="./static/images/traverse/adni_age/adni_age_"
+              data-suffix=".png"
+              data-preload="true"
+              data-preload-radius="2"
+              data-preload-chunk="6"
+              data-preload-delay="25">
+
+        <!-- <div class="trv-meta"><span data-step-for="range_skin3d">0</span> / 48</div> -->
+      </div>
+
+      <!-- Col 3 (Model + slider) -->
+      <div class="trv-cell">
+        <div class="trv-title">
+          Human: "What if the <span class="hl">vent volume</span> had been different?"
+        </div>
+
+        <img class="trv-img" id="img_vent"
+            src="./static/images/traverse/vent/vent_15.png" alt="Vent volume traversal">
+
+        <input class="slider2 trv-slider" id="range_vent" type="range"
+              min="1" max="30" value="15"
+              data-target-img="img_vent"
+              data-prefix="./static/images/traverse/vent/vent_"
+              data-suffix=".png"
+              data-preload="true"
+              data-preload-radius="2">
+
+        <!-- <div class="trv-meta"><span data-step-for="range_skin3d_model">0</span> / 48</div> -->
+
+      </div>
+    </div>
     
 </section>
 
-
-<section class="section">
-  <div class="page-wide">
-    <h2 class="title is-3 has-text-centered">Key Insights and Figures</h2>
-
-    <!-- 3-col Grid -->
-    <div class="trv-grid">
-
-      <!-- Col 1 (static / demo) -->
-      <div class="trv-cell trv-cell-plain">
-        <div class="trv-figure trv-figure--demo">
-          <img class="trv-img"
-               src="./static/images/traverse_illustration/traverse_pend_illustration.png"
-               alt="Demo image">
-        </div>
-      </div>
-
-      <!-- Col 2 (Pendulum) -->
-      <div class="trv-cell">
-        <div class="trv-title">
-          Human: "What if the <span class="hl">pendulum angle</span> had been different?"
-        </div>
-
-        <div class="trv-figure">
-          <img class="trv-img" id="img_skin3d"
-               src="./static/images/traverse/pendulum/pendulum_13.png"
-               alt="Pendulum traversal">
-        </div>
-
-        <input class="slider2 trv-slider" id="range_skin3d" type="range"
-               min="0" max="29" value="13"
-               data-target-img="img_skin3d"
-               data-prefix="./static/images/traverse/pendulum/pendulum_"
-               data-suffix=".png"
-               data-preload="true"
-               data-preload-radius="2"
-               data-preload-chunk="6"
-               data-preload-delay="25">
-      </div>
-
-      <!-- Col 3 (Light) -->
-      <div class="trv-cell">
-        <div class="trv-title">
-          Human: "What if the <span class="hl">light position</span> had been different?"
-        </div>
-
-        <div class="trv-figure">
-          <img class="trv-img" id="img_skin3d_model"
-               src="./static/images/traverse/light/light_10.png"
-               alt="Light traversal">
-        </div>
-
-        <input class="slider2 trv-slider" id="range_skin3d_model" type="range"
-               min="0" max="29" value="10"
-               data-target-img="img_skin3d_model"
-               data-prefix="./static/images/traverse/light/light_"
-               data-suffix=".png"
-               data-preload="true"
-               data-preload-radius="2">
-      </div>
-
-    </div>
-  </div>
-</section>
 
 
 

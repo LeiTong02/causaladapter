@@ -777,70 +777,75 @@ code {
   padding: 0 24px;            /* ✅ 左右边距（你要“留一点边距”） */
 }
 
-
-
-
 .trv-grid {
   display: grid;
   grid-template-columns: 60% 20% 20%;
-  gap: 18px;
-  margin-left: 5%;
-  margin-right: 5%;
-  align-items: start;
+  column-gap: 10px;
+  row-gap: 25px;
+  margin-left: 1%;
+  margin-right: 1%;
+  margin-top: 15px;
+  align-items: stretch;
   justify-content: center;
   text-align: center;
 }
 
-/* each cell */
+/* Each cell */
 .trv-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center content horizontally */
   padding: 10px 10px 12px;
   border-radius: 12px;
-  justify-content: center;
-  text-align: center;
+  background-color: #edeff8;
+  height: 100%;
 }
-.trv-cell-demo{
-  padding: 10px 10px 12px;
-  border-radius: 12px;
-}
+
 /* First-column demo: no grey background */
 .trv-cell-plain {
+  display: flex;
+  align-items: center;
   background: transparent !important;
-}
-
-/* 可选：如果你希望 demo 图更“贴边”，去掉 padding */
-.trv-cell-plain {
   padding: 0 !important;
 }
 
+/* Title styling */
+.trv-title {
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  min-height: 3em;
+  width: 100%; /* Full width for text */
+}
 
-
-
-/* 默认图片：用于第一列 demo（可以满宽或按你原需求） */
+/* Images */
 .trv-img {
   width: 100%;
-  height: 100%;
   object-fit: contain;
   border-radius: 12px;
   display: block;
 }
 
+/* Constrain images in columns 2 and 3 */
+.trv-cell .trv-img {
+  max-width: 70%; /* Adjust this value (60-80%) to control image size */
+  width: auto;
+  height: auto;
+}
 
-
-/* slider */
-.trv-slider {
+/* First column image stays full width */
+.trv-cell-plain .trv-img {
+  max-width: 100%;
   width: 100%;
+}
+
+/* Slider */
+.trv-slider {
+  width: 100%; /* Slider stays full width */
   margin-top: 10px;
+  flex-shrink: 0;
 }
 
-/* meta */
-.trv-meta {
-  font-size: 0.85rem;
-  opacity: 0.75;
-  text-align: center;
-  margin-top: 4px;
-}
-
-/* highlight token */
+/* Highlight token */
 .hl {
   background-color: #f1b492;
   color: #000;
@@ -848,7 +853,7 @@ code {
   border-radius: 6px;
 }
 
-/* responsive: stack to 1 col on small screens */
+/* Responsive: stack to 1 col on small screens */
 @media (max-width: 900px) {
   .trv-grid {
     grid-template-columns: 1fr;
@@ -856,6 +861,9 @@ code {
   .trv-cell {
     max-width: 760px;
     margin: 0 auto;
+  }
+  .trv-cell .trv-img {
+    max-width: 60%; /* Smaller on mobile */
   }
 }
 
