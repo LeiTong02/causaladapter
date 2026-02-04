@@ -94,11 +94,11 @@
 })();
 
 document.addEventListener("DOMContentLoaded", () => {
-  const slider = document.getElementById("range_skin3d");
-  const img = document.getElementById("img_skin3d");
+  const slider = document.getElementById("range_pend");
+  const img = document.getElementById("range_light");
 
-  if (!slider) { console.error("❌ slider #range_skin3d not found"); return; }
-  if (!img) { console.error("❌ image #img_skin3d not found"); return; }
+  if (!slider) { console.error("❌ slider #range_pend not found"); return; }
+  if (!img) { console.error("❌ image #range_light not found"); return; }
 
   console.log("✅ slider found:", slider);
   console.log("✅ img found:", img);
