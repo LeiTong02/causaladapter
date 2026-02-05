@@ -811,7 +811,7 @@ code {
 
 /* Title styling */
 .trv-title {
-  font-size: 0.9rem;
+  font-size: 14px;
   margin-bottom: 10px;
   min-height: 3em;
   width: 100%; /* Full width for text */
