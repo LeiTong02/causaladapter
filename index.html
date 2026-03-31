@@ -3,696 +3,611 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <!-- TODO: Replace with your paper title and author names -->
-  <meta name="title" content="Causal-Adapter">
-  <!-- TODO: Write a compelling 150-160 character description of your research -->
-  <meta name="description" content="Taming Text-to-Image Diffusion for Counterfactual Generation">
-  <!-- TODO: Add 5-10 relevant keywords for your research area -->
-  <meta name="keywords" content="Causal Reasoning; Counterfactual image generation; Text-to-image Diffusion">
-  <!-- TODO: List all authors -->
-  <meta name="author" content="Lei Tong">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
+
+  <title>Causal-Adapter: Taming Text-to-Image Diffusion for Faithful Counterfactual Generation</title>
+
+  <!-- Meta -->
+  <meta name="title" content="Causal-Adapter: Taming Text-to-Image Diffusion for Faithful Counterfactual Generation">
+  <meta name="description" content="Causal-Adapter augments a structural causal model with prompt-aligned injection and contrastive loss to enable faithful counterfactual image generation from off-the-shelf T2I diffusion models.">
+  <meta name="keywords" content="Causal Reasoning, Counterfactual Image Generation, Text-to-Image Diffusion, Structural Causal Model, Disentanglement">
+  <meta name="author" content="Lei Tong, Zhihua Liu, Chaochao Lu, Dino Oglic, Tom Diethe, Philip Teare, Sotirios A. Tsaftaris, Chen Jin">
+
+  <!-- OG -->
   <meta property="og:type" content="article">
-  <!-- TODO: Replace with your institution or lab name -->
   <meta property="og:site_name" content="AstraZeneca CAI">
-  <!-- TODO: Same as paper title above -->
   <meta property="og:title" content="Causal-Adapter">
-  <!-- TODO: Same as description above -->
-  <meta property="og:description" content="Taming Text-to-Image Diffusion for Counterfactual Generation">
-  <!-- TODO: Replace with your actual website URL -->
-  <meta property="og:url" content="https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE">
-  <!-- TODO: Create a 1200x630px preview image and update path -->
-  <meta property="og:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Causal-Adapter">
-  <meta property="article:published_time" content="2024-01-01T00:00:00.000Z">
-  <meta property="article:author" content="FIRST_AUTHOR_NAME">
-  <meta property="article:section" content="Research">
-  <meta property="article:tag" content="KEYWORD1">
-  <meta property="article:tag" content="KEYWORD2">
+  <meta property="og:description" content="Taming Text-to-Image Diffusion for Faithful Counterfactual Generation">
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <!-- TODO: Replace with your lab/institution Twitter handle -->
-  <meta name="twitter:site" content="@YOUR_TWITTER_HANDLE">
-  <!-- TODO: Replace with first author's Twitter handle -->
-  <meta name="twitter:creator" content="@AUTHOR_TWITTER_HANDLE">
-  <!-- TODO: Same as paper title above -->
-  <meta name="twitter:title" content="Causal-Adapter">
-  <!-- TODO: Same as description above -->
-  <meta name="twitter:description" content="Taming Text-to-Image Diffusion for Counterfactual Generation">
-  <!-- TODO: Same as social preview image above -->
-  <meta name="twitter:image" content="https://YOUR_DOMAIN.com/static/images/social_preview.png">
-  <meta name="twitter:image:alt" content="Causal-Adapter - Research Preview">
+  <!-- Academic -->
+  <meta name="citation_title" content="Causal-Adapter: Taming Text-to-Image Diffusion for Faithful Counterfactual Generation">
+  <meta name="citation_author" content="Tong, Lei">
+  <meta name="citation_author" content="Liu, Zhihua">
+  <meta name="citation_author" content="Lu, Chaochao">
+  <meta name="citation_author" content="Oglic, Dino">
+  <meta name="citation_author" content="Diethe, Tom">
+  <meta name="citation_author" content="Teare, Philip">
+  <meta name="citation_author" content="Tsaftaris, Sotirios A.">
+  <meta name="citation_author" content="Jin, Chen">
+  <meta name="citation_publication_date" content="2025">
 
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="Causal-Adapter">
-  <meta name="citation_author" content="Lei Tong">
-  <meta name="citation_author" content="SECOND_AUTHOR_LAST, SECOND_AUTHOR_FIRST">
-  <meta name="citation_publication_date" content="2024">
-  <meta name="citation_conference_title" content="CONFERENCE_NAME">
-  <meta name="citation_pdf_url" content="https://YOUR_DOMAIN.com/static/pdfs/paper.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
+  <!-- Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
   <link rel="preconnect" href="https://cdn.jsdelivr.net">
 
+  <!-- Fonts: DM Serif Display for titles, DM Sans for body -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 
-  <!-- TODO: Replace with your paper title and authors -->
-  <title>Causal-Adapter</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS - Load synchronously -->
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS - Load asynchronously -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <!-- Icons (local copies — no CDN required) -->
   <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <!-- Fallback for browsers that don't support preload -->
+  <link rel="preload" href="static/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
     <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="static/css/academicons.min.css">
   </noscript>
-  
-  <!-- Fonts - Optimized loading -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+
+  <!-- Page CSS -->
+  <link rel="stylesheet" href="static/css/style.css">
+
+  <!-- JS -->
   <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  <script defer src="static/js/jscript.js"></script>
-  
-  <!-- Structured Data for Academic Papers -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "Causal-Adapter",
-    "description": "Taming Text-to-Image Diffusion for Counterfactual Generation",
-    "author": [
-      {
-        "@type": "Person",
-        "name": "Lei Tong",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      },
-      {
-        "@type": "Person",
-        "name": "SECOND_AUTHOR_NAME",
-        "affiliation": {
-          "@type": "Organization",
-          "name": "INSTITUTION_NAME"
-        }
-      }
-    ],
-    "datePublished": "2024-01-01",
-    "publisher": {
-      "@type": "Organization",
-      "name": "CONFERENCE_OR_JOURNAL_NAME"
-    },
-    "url": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE",
-    "image": "https://YOUR_DOMAIN.com/static/images/social_preview.png",
-    "keywords": ["KEYWORD1", "KEYWORD2", "KEYWORD3", "machine learning", "computer vision"],
-    "abstract": "FULL_ABSTRACT_TEXT_HERE",
-    "citation": "BIBTEX_CITATION_HERE",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/",
-    "mainEntity": {
-      "@type": "WebPage",
-      "@id": "https://YOUR_DOMAIN.com/YOUR_PROJECT_PAGE"
-    },
-    "about": [
-      {
-        "@type": "Thing",
-        "name": "RESEARCH_AREA_1"
-      },
-      {
-        "@type": "Thing", 
-        "name": "RESEARCH_AREA_2"
-      }
-    ]
-  }
-  </script>
-  
-  <!-- Website/Organization Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "INSTITUTION_OR_LAB_NAME",
-    "url": "https://YOUR_INSTITUTION_WEBSITE.com",
-    "logo": "https://YOUR_DOMAIN.com/static/images/favicon.ico",
-    "sameAs": [
-      "https://twitter.com/YOUR_TWITTER_HANDLE",
-      "https://github.com/YOUR_GITHUB_USERNAME"
-    ]
-  }
-  </script>
+  <script defer src="static/js/main.js"></script>
 </head>
 <body>
 
+<!-- Scroll to Top -->
+<button class="scroll-to-top" aria-label="Scroll to top">
+  <i class="fas fa-chevron-up"></i>
+</button>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
+<!-- ============================================================
+     HERO — Clean white background, elegant serif title
+     ============================================================ -->
+<header class="hero-section">
+  <span class="hero-eyebrow">Preprint 2025</span>
+  <h1><span class="accent">Causal-Adapter</span><span class="title-sep">:</span> Taming Text-to-Image Diffusion<br>for Faithful Counterfactual Generation</h1>
+  <p class="hero-subtitle">A modular framework that adapts frozen T2I diffusion models for faithful, causally-grounded counterfactual image synthesis.</p>
 
-  <!-- More Works Dropdown -->
-  
-
-  <main id="main-content">
-  <section class="hero hero-top">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <!-- TODO: Replace with your paper title -->
-            <h1 class="title is-1 publication-title" style="color: #e3812c!important;">Taming Text-to-Image Diffusion for
- Counterfactual Generation</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- TODO: Replace with your paper authors and their personal links -->
-              <span class="author-block">
-                <a href="https://leitong02.github.io/" target="_blank" >Lei Tong</a><sup>* 1</sup>,</span>
-                <span class="author-block">
-                  <a href="https://zhihualiued.github.io/" target="_blank">Zhihua Liu</a><sup>* 2</sup>,</span>
-                  <span class="author-block">
-                  <a href="https://causallu.com/" target="_blank">Chaochao Lu</a><sup>3</sup>,</span>
-                  <span class="author-block">
-                  <a href="https://doglic.bitbucket.io/" target="_blank">Dino Oglic</a><sup>1</sup>,</span>
-                  <span class="author-block">
-                  <a href="https://tomdiethe.com/" target="_blank">Tom Diethe</a><sup>1</sup>,</span>
-                  <span class="author-block">
-                  <a href="https://uk.linkedin.com/in/philteare" target="_blank">Philip Teare</a><sup>1</sup>,</span>
-                  <span class="author-block">
-                  <a href="https://eng.ed.ac.uk/about/people/professor-sotirios-tsaftaris" target="_blank">Sotirios A. Tsaftaris</a><sup>2</sup>,</span>
-                  <span class="author-block">
-                  <a href="https://chenjin.netlify.app/" target="_blank">Chen Jin</a><sup>1</sup>,</span>
-                  </div>
-
-                  <div class="is-size-5 publication-authors">
-                  <span class="author-block">
-                    <span><sup>1</sup>&nbsp;CAI, AstraZeneca</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span><sup>2</sup>&nbsp;CHAI Hub, University of Edinburgh</span>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <span><sup>3</sup>&nbsp;Shanghai AI Lab</span>
-                    <br>
-                    <span class="is-size-6">Preprint</span>
-                  </span>
-
-                  <span class="eql-cntrb">
-                    <small><br><sup>*</sup>&nbsp;Indicates Equal Contribution</small>
-                  </span>
-                </div>
-
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- TODO: Update with your arXiv paper ID -->
-                      <span class="link-block">
-                        <a href="https://arxiv.org/pdf/2509.24798.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>
-
-
-                  <!-- TODO: Replace with your GitHub repository URL -->
-                  <span class="link-block">
-                    <a href="https://github.com/YOUR REPO HERE" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <!-- TODO: Update with your arXiv paper ID -->
-                <span class="link-block">
-                  <a href="https://arxiv.org/abs/2509.24798" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>
-            </div>
-          </div>
-        </div>
-        
-      </div>
-    </div>
+  <div class="authors">
+    <span><a href="https://leitong02.github.io/" target="_blank">Lei Tong</a><sup>*1</sup>,</span>
+    <span><a href="https://zhihualiued.github.io/" target="_blank">Zhihua Liu</a><sup>*2</sup>,</span>
+    <span><a href="https://causallu.com/" target="_blank">Chaochao Lu</a><sup>3</sup>,</span>
+    <span><a href="https://doglic.bitbucket.io/" target="_blank">Dino Oglic</a><sup>1</sup>,</span>
+    <span><a href="https://tomdiethe.com/" target="_blank">Tom Diethe</a><sup>1</sup>,</span>
+    <span><a href="https://uk.linkedin.com/in/philteare" target="_blank">Philip Teare</a><sup>1</sup>,</span>
+    <span><a href="https://eng.ed.ac.uk/about/people/professor-sotirios-tsaftaris" target="_blank">Sotirios A. Tsaftaris</a><sup>2</sup>,</span>
+    <span><a href="https://chenjin.netlify.app/" target="_blank">Chen Jin</a><sup>1</sup></span>
   </div>
-  
-</section>
 
-<!-- Teaser video-->
-<section class="hero teaser teaser-compact" >
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-
-      <div class="teaser-wrap">
-        <img
-          src="static/images/fig1_ctf_illustration.png"
-          alt="Learning from model weights"
-          class="blend-img-background teaser-float-img"
-          loading="lazy"
-        />
-
-        <p class="is-size-5">
-        Counterfactual generation is specified by two standard inputs: a <strong>predefined causal graph</strong> and <strong>semantic attributes</strong> that define the intervention.
-        <strong>Causal-Adapter</strong> instantiates an SCM over the conditioning variables and tames an off-the-shelf text-to-image diffusion backbone to disentangle causal factors in the text-embedding space, generating faithful counterfactual images.
-        It can integrates seamlessly with Stable Diffusion 1.5/3, FLUX etc., with lightweight adaptation.
-      </p>
-
-
-        <div style="clear: both;"></div>
-      </div>
-
-    </div>
+  <div class="affiliations">
+    <sup>1</sup>&thinsp;CAI, AstraZeneca, Cambridge &nbsp;&nbsp;
+    <sup>2</sup>&thinsp;CHAI Hub, University of Edinburgh &nbsp;&nbsp;
+    <sup>3</sup>&thinsp;Shanghai AI Lab
   </div>
-</section>
+  <div class="equal-note"><sup>*</sup> Equal Contribution</div>
 
+  <nav class="link-pills">
+    <a href="https://arxiv.org/pdf/2509.24798.pdf" target="_blank"><i class="fas fa-file-pdf"></i> Paper</a>
+    <a href="https://arxiv.org/abs/2509.24798" target="_blank"><i class="ai ai-arxiv"></i> arXiv</a>
+    <a href="https://github.com/YOUR-REPO" target="_blank"><i class="fab fa-github"></i> Code</a>
+  </nav>
+</header>
 
-<section class="hero teaser" style="background-color:#efeff081;">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <!-- Title and tagline, remains centered -->
-        <h4 class="subtitle has-text-centered" style="font-size:1.1rem;">
-          <strong>Taming T2I Diffusion for Counterfactual Generation</strong> <br />
-          <em>“An off-the-shelf text-to-image diffusion model can be tamed with causal semantic attributes to generate faithful counterfactual images”</em>
-        </h4>
-        <!-- Centered Abstract Container with fixed max width -->
-        <div class="abstract-summary" style="max-width: 1920px; margin: 0 auto; text-align: center;">
-          <!-- <h2>Abstract</h2> -->
-          <p>
-            Causal-Adapter augments an SCM with prompt-aligned injection and a conditioned token contrastive loss to disentangle attributes, reduce spurious correlations, and achieve SOTA on synthetic and real-world datasets.
-          </p>
-          <p>
-            <strong>Key highlights:</strong>
-          </p>
-  
-          <!-- Bullet points also centered -->
-          <ul style="list-style-position: inside;">
-            <li><strong>Significant Gains:</strong> +50% intervention effectiveness; +87% image quality</li>
-            <li><strong>Low Compute:</strong> Finetunes in 10 hours on 1 NVIDIA A10G (24GB).</li>
-            <li><strong>Model-Agnostic:</strong> Works with Stable Diffusion 1.5, FLUX.1, and more.</li>
-            <li><strong>Precise Attention:</strong> Better semantic–spatial alignment in diffusion latents.</li>
-            <li><strong>Causal Graph Support:</strong> Supports learning causal structure (graph) from scratch.</li>
-            <li><strong>Open-Source:</strong> Code, data & finetuned models will be available.</li>
-          </ul>
-  
-          <!-- Expand/Collapse Toggle Button -->
-          <button onclick="toggleAbstract()" style="margin-top:10px;">
-            Read Abstract
-          </button>
-  
-          <!-- Hidden Full Abstract -->
-          <div id="full-abstract" style="display: none; margin-top:10px;">
-            <p>
-              We present Causal-Adapter, a modular framework that adapts frozen text-to-image diffusion for counterfactual generation. Our method enables causal interventions on target attributes, consistently propagating their effects to causal dependents without altering the core identity of the image. In contrast to prior approaches that rely on prompt engineering without explicit causal mechanism, Causal-Adapter leverages structural causal modeling augmented with two attribute regularization strategies: prompt-aligned injection, which aligns causal attributes with textual embeddings for precise semantic control, and a conditioned token contrastive loss to disentangle attribute factors and reduce spurious correlations. Causal-Adapter achieves state-of-the-art performance on both synthetic and real-world datasets, with up to 91% MAE reduction on Pendulum for accurate attribute control and 87% FID reduction on ADNI for high-fidelity MRI generation. These results show that our approach enables robust, generalizable counterfactual editing with faithful attribute modification and strong identity preservation.
-            </p>
-          </div>
-        </div><!-- end of abstract-summary -->
-      </div><!-- end of hero-body -->
-    </div><!-- end of container -->
-  </section>
-
-  <script>
-    function toggleAbstract() {
-      const fullAbs = document.getElementById('full-abstract');
-      if (fullAbs.style.display === 'none') {
-        fullAbs.style.display = 'block';
-      } else {
-        fullAbs.style.display = 'none';
-      }
-    }
-  </script>
-  
-  <script>
-    function toggleAbstract() {
-      const fullAbs = document.getElementById('full-abstract');
-      if (fullAbs.style.display === 'none') {
-        fullAbs.style.display = 'block';
-      } else {
-        fullAbs.style.display = 'none';
-      }
-    }
-  </script>
-
-<section class="section">
-  <div class="page-wide ">
-      
-        <h2 class="title is-3 has-text-centered">Disentangling Semantic Attributes and Propagating Causal Effects</h2>
-        <div class="abstract-summary" style="max-width: 1300px; margin: 0 auto; text-align: center;">
-        <p>
-          Causal-Adapter enables faithful counterfactual image generation by intervening on specific attributes and propagating causal effects through the causal graph.
-        </p>
-        </div>
-    <!-- 3x3 Grid -->
-    <div class="trv-grid">
-
-      
-      <!-- ========== Row 1 ========== -->
-       <!-- Col 1 (static / demo) --> 
-        <div class="trv-cell-plain"> <img class="trv-img" src="./static/images/traverse_illustration/traverse_pend_illustration.png" alt="Demo image"> </div>
-       <!-- Col 2 (Human + slider) -->
-      <div class="trv-cell">
-        <div class="trv-title">
-          Human: "What if the <span class="hl">pend angle</span> had been different?"
-        </div>
-
-        <img class="trv-img" id="img_pend"
-            src="./static/images/traverse/pendulum/pendulum_13.png" alt="Pendulum traversal">
-
-        <input class="slider2 trv-slider" id="range_pend" type="range"
-              min="0" max="29" value="13"
-              data-target-img="img_pend"
-              data-prefix="./static/images/traverse/pendulum/pendulum_"
-              data-suffix=".png"
-              data-preload="true"
-              data-preload-radius="2"
-              data-preload-chunk="6"
-              data-preload-delay="25">
-        
-        <div class="trv-slider-labels">
-          <span class="trv-slider-label-left">-30°</span>
-          <span class="trv-slider-label-right">30°</span>
-        </div>
-
-        <!-- <div class="trv-meta"><span data-step-for="range_skin3d">0</span> / 48</div> -->
-      </div>
-
-      <!-- Col 3 (Model + slider) -->
-      <div class="trv-cell">
-        <div class="trv-title">
-          Human: "What if the <span class="hl">light position</span> had been different?"
-        </div>
-
-        <img class="trv-img" id="img_light"
-            src="./static/images/traverse/light/light_10.png" alt="Light traversal">
-
-        <input class="slider2 trv-slider" id="range_light" type="range"
-              min="0" max="29" value="10"
-              data-target-img="img_light"
-              data-prefix="./static/images/traverse/light/light_"
-              data-suffix=".png"
-              data-preload="true"
-              data-preload-radius="2">
-        <div class="trv-slider-labels">
-          <span class="trv-slider-label-left">-1</span>
-          <span class="trv-slider-label-right">1</span>
-        </div>
-
-        <!-- <div class="trv-meta"><span data-step-for="range_skin3d_model">0</span> / 48</div> -->
-
-      </div>
-
-       <!-- Col 1 (static / demo) --> 
-        <div class="trv-cell-plain"> <img class="trv-img" src="./static/images/traverse_illustration/traverse_celeba_illustration.png" alt="Demo image"> </div>
-       <!-- Col 2 (Human + slider) -->
-      <div class="trv-cell">
-        <div class="trv-title">
-          Human: "What if the <span class="hl">human age</span> had been different?"
-        </div>
-
-        <img class="trv-img" id="img_celeba_age"
-            src="./static/images/traverse/age/age_2.png" alt="CelebA age traversal">
-
-        <input class="slider2 trv-slider" id="range_celeba_age" type="range"
-              min="2" max="30" value="2"
-              data-target-img="img_celeba_age"
-              data-prefix="./static/images/traverse/age/age_"
-              data-suffix=".png"
-              data-preload="true"
-              data-preload-radius="2"
-              data-preload-chunk="6"
-              data-preload-delay="25">
-        <div class="trv-slider-labels">
-          <span class="trv-slider-label-left">young</span>
-          <span class="trv-slider-label-right">old</span>
-        </div>
-        <!-- <div class="trv-meta"><span data-step-for="range_skin3d">0</span> / 48</div> -->
-      </div>
-
-      <!-- Col 3 (Model + slider) -->
-      <div class="trv-cell">
-        <div class="trv-title">
-          Human: "What if the <span class="hl">human gender</span> had been different?"
-        </div>
-
-        <img class="trv-img" id="img_gender"
-            src="./static/images/traverse/gender/gender_2.png" alt="Gender traversal">
-
-        <input class="slider2 trv-slider" id="range_gender" type="range"
-              min="2" max="29" value="2"
-              data-target-img="img_gender"
-              data-prefix="./static/images/traverse/gender/gender_"
-              data-suffix=".png"
-              data-preload="true"
-              data-preload-radius="2">
-        <div class="trv-slider-labels">
-          <span class="trv-slider-label-left">male</span>
-          <span class="trv-slider-label-right">female</span>
-        </div>
-
-        <!-- <div class="trv-meta"><span data-step-for="range_skin3d_model">0</span> / 48</div> -->
-
-      </div>
-
-      <!-- Col 1 (static / demo) --> 
-        <div class="trv-cell-plain"> <img class="trv-img" src="./static/images/traverse_illustration/traverse_adni_illustration.png" alt="Demo image"> </div>
-       <!-- Col 2 (Human + slider) -->
-      <div class="trv-cell">
-        <div class="trv-title">
-          Human: "What if the <span class="hl">age</span> had been different?"
-        </div>
-
-        <img class="trv-img" id="img_adni_age"
-            src="./static/images/traverse/adni_age/adni_age_31.png" alt="ADNI age traversal">
-
-        <input class="slider2 trv-slider" id="range_adni_age" type="range"
-              min="1" max="31" value="31"
-              data-target-img="img_adni_age"
-              data-prefix="./static/images/traverse/adni_age/adni_age_"
-              data-suffix=".png"
-              data-preload="true"
-              data-preload-radius="2"
-              data-preload-chunk="6"
-              data-preload-delay="25">
-
-        <div class="trv-slider-labels">
-          <span class="trv-slider-label-left">55</span>
-          <span class="trv-slider-label-right">90</span>
-        </div>
-
-        <!-- <div class="trv-meta"><span data-step-for="range_skin3d">0</span> / 48</div> -->
-      </div>
-
-      <!-- Col 3 (Model + slider) -->
-      <div class="trv-cell">
-        <div class="trv-title">
-          Human: "What if the <span class="hl">vent volume</span> had been different?"
-        </div>
-
-        <img class="trv-img" id="img_vent"
-            src="./static/images/traverse/vent/vent_15.png" alt="Vent volume traversal">
-
-        <input class="slider2 trv-slider" id="range_vent" type="range"
-              min="1" max="30" value="15"
-              data-target-img="img_vent"
-              data-prefix="./static/images/traverse/vent/vent_"
-              data-suffix=".png"
-              data-preload="true"
-              data-preload-radius="2">
-
-        <div class="trv-slider-labels">
-          <span class="trv-slider-label-left">0</span>
-          <span class="trv-slider-label-right">1</span>
-        </div>
-
-        <!-- <div class="trv-meta"><span data-step-for="range_skin3d_model">0</span> / 48</div> -->
-
-      </div>
-    </div>
-    
-</section>
-
-
-
-
-<!-- End paper abstract -->
-  <section class="section" style="background-color:#efeff081">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-six-fifths">
-          <h2 class="title is-3">Key Insights and Figures</h2>
-        </div>
-      </div>
-
-      <!-- Row of figures -->
-      <div class="columns is-centered">
-        <div class="column is-full-width">
-          <div class="content has-text-justified">
-
-              <div style="
-              display: flex; 
-              flex-wrap: wrap; 
-              justify-content: center; 
-              align-items: center; 
-              gap: 20px;">
-
-              <!-- First Figure -->
-              <figure style="
-                flex: 1 1 600px; 
-                max-width: 100%; 
-                min-width: 250px; 
-                margin: 0; 
-                text-align: center;">
-                <img src="static/images/motivation_study.png" 
-                     alt="Causal-Adapter Fig" 
-                     style="width: 100%; vertical-align: middle;">
-                <figcaption>
-                  <small>
-                    <em>Figure 1. Motivational study: (a) Current T2I models often overlook continuous attributes, limiting fine-grained edits. (b) Existing T2I methods suffer from attribute entanglement. (c) Cross-attention maps: base vs. regularized Causal-Adapter.
-                  </small>
-                </figcaption>
-              </figure>
-              
-              
-            </div>
-            
-
-            <div style="
-              display: flex; 
-              flex-wrap: wrap; 
-              justify-content: center; 
-              align-items: center; 
-              gap: 20px;">
-              
-              <!-- First Figure -->
-              <figure style="
-                flex: 1 1 600px; 
-                max-width: 100%; 
-                min-width: 250px; 
-                margin: 0; 
-                text-align: center;">
-                <img src="static/images/sketch_comparison.png" 
-                     alt="Causal-Adapter Fig" 
-                     style="width: 100%; vertical-align: middle;">
-                <figcaption>
-                  <small>
-                    <em>Figure 2. A sketch comparison of counterfactual image generation methods based on: (a) VAE or GAN (b) Diffusion SCM and (c) Diffusion autoencoder (d) T2I based editing (e) Vanilla Causal-Adapter (f) Causal-Adapter with attribute regularization
-                  </small>
-                </figcaption>
-              </figure>
-
-
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-
-    <!-- ===== Additional / Detailed Methods Section ===== -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Method</h2>
-
-      <!-- Code snippet or pseudo-code from your LaTeX -->
-      <div class="card mb-3">
-        <div class="card-body" style="display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;">
-          <div style="flex:1; min-width:300px; margin-right:1rem;">
-            <img src="static/images/framework.png" alt="fig 3" style="max-width:100%;">
-          </div>
-        </div>
-      </div>
-
+<!-- ============================================================
+     TEASER — Balanced layout
+     ============================================================ -->
+<section class="teaser-section">
+  <div class="teaser-card fade-up">
+    <img src="static/images/fig1_ctf_illustration.png" alt="Counterfactual generation illustration" class="teaser-img">
+    <div class="teaser-text">
       <p>
-        We propose <strong>Causal-Adapter</strong>, a simple yet module that plugs into a pretrained text-to-image diffusion model to generate faithful counterfactual images. 
-        Given an input image and an intervention specified by a causal graph and semantic attributes, Causal-Adapter injects causal signals into the text conditioning (via <strong>prompt-aligned injection</strong>) 
-        and is trained with reconstruction and <strong>contrastive objectives</strong> to disentangle attributes and reduce spurious correlations. 
-        At inference, intervened attributes update the conditioning to produce counterfactuals, 
-        with optional attention guidance for localized edits while preserving non-intervened identity cues.
+        Counterfactual generation is specified by two standard inputs: a <strong>predefined causal graph</strong> and <strong>semantic attributes</strong> that define the intervention.
+      </p>
+      <p>
+        <strong>Causal-Adapter</strong> instantiates a structural causal model (SCM) over the conditioning variables and tames an off-the-shelf text-to-image diffusion backbone to disentangle causal factors in the text-embedding space, generating faithful counterfactual images.
       </p>
     </div>
-  </section>
+  </div>
+</section>
 
-<!--BibTex citation -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
+<!-- ============================================================
+     KEY HIGHLIGHTS + ABSTRACT (kept as-is)
+     ============================================================ -->
+<section class="highlights-section">
+  <div class="highlights-inner">
+    <span class="section-tag">At a Glance</span>
+    <h2>Key Highlights</h2>
+    <p class="highlights-tagline">"An off-the-shelf T2I diffusion model can be tamed with causal semantic attributes to generate faithful counterfactual images."</p>
+
+    <div class="highlight-grid stagger">
+      <div class="highlight-card fade-up">
+        <div class="hc-icon"><i class="fas fa-chart-line"></i></div>
+        <h4>Significant Gains</h4>
+        <p>+50% intervention effectiveness; +87% image quality (FID) improvement over prior methods.</p>
       </div>
-      <pre id="bibtex-code"><code>@article{tong2025causal,
+      <div class="highlight-card fade-up">
+        <div class="hc-icon"><i class="fas fa-bolt"></i></div>
+        <h4>Low Compute</h4>
+        <p>Fine-tunes in 10 hours on a single NVIDIA A10G (24 GB).</p>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="hc-icon"><i class="fas fa-plug"></i></div>
+        <h4>Model-Agnostic</h4>
+        <p>Works with SD 1.5, SD 3, FLUX.1, and future T2I backbones.</p>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="hc-icon"><i class="fas fa-crosshairs"></i></div>
+        <h4>Precise Attention</h4>
+        <p>Better semantic-spatial alignment in diffusion latents via attention guidance.</p>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="hc-icon"><i class="fas fa-project-diagram"></i></div>
+        <h4>Causal Graph Support</h4>
+        <p>Supports learning causal structure (graph) from scratch when none is provided.</p>
+      </div>
+      <div class="highlight-card fade-up">
+        <div class="hc-icon"><i class="fas fa-code-branch"></i></div>
+        <h4>Open-Source</h4>
+        <p>Code, data, and fine-tuned models will be publicly available.</p>
+      </div>
+    </div>
+
+    <button class="abstract-toggle" id="abstractToggle">
+      <span class="toggle-text">Read Full Abstract</span>
+      <i class="fas fa-chevron-down toggle-icon" style="transition: transform .3s"></i>
+    </button>
+
+    <div class="full-abstract" id="fullAbstract">
+      <p>
+        We present Causal-Adapter, a modular framework that adapts frozen text-to-image diffusion for counterfactual generation. Our method enables causal interventions on target attributes, consistently propagating their effects to causal dependents without altering the core identity of the image. In contrast to prior approaches that rely on prompt engineering without explicit causal mechanism, Causal-Adapter leverages structural causal modeling augmented with two attribute regularization strategies: prompt-aligned injection, which aligns causal attributes with textual embeddings for precise semantic control, and a conditioned token contrastive loss to disentangle attribute factors and reduce spurious correlations. Causal-Adapter achieves state-of-the-art performance on both synthetic and real-world datasets, with up to 91% MAE reduction on Pendulum for accurate attribute control and 87% FID reduction on ADNI for high-fidelity MRI generation. These results show that our approach enables robust, generalizable counterfactual editing with faithful attribute modification and strong identity preservation.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MOTIVATION & COMPARISON — Tabbed view
+     ============================================================ -->
+<section class="insights-section">
+  <div class="insights-inner">
+    <span class="section-tag">Why Causal-Adapter?</span>
+    <h2>Motivation &amp; Comparison</h2>
+
+    <!-- Tab nav -->
+    <div class="insight-tabs">
+      <button class="insight-tab active" data-tab="motivation">The Problem</button>
+      <button class="insight-tab" data-tab="comparison">Our Solution vs. Prior Work</button>
+    </div>
+
+    <!-- Tab 1: Motivation -->
+    <div class="insight-panel active" id="panel-motivation">
+      <div class="insight-split">
+        <div class="insight-figure">
+          <img src="static/images/motivation_study.png" alt="Motivation study">
+        </div>
+        <div class="insight-explain">
+          <div class="insight-point">
+            <div class="insight-point-tag">Problem A</div>
+            <h4>Continuous attributes are ignored</h4>
+            <p>Current T2I models treat attributes as binary switches. Fine-grained, continuous control (e.g., ventricle volume) is lost in prompt space.</p>
+          </div>
+          <div class="insight-point">
+            <div class="insight-point-tag">Problem B</div>
+            <h4>Attribute entanglement</h4>
+            <p>Editing one attribute (age) inadvertently changes others (beard, hairstyle) because T2I latents lack causal disentanglement.</p>
+          </div>
+          <div class="insight-point">
+            <div class="insight-point-tag">Our Fix</div>
+            <h4>Regularized cross-attention</h4>
+            <p>Causal-Adapter's PAI + CTC loss disentangle token embeddings, yielding clean, localized attention maps per attribute.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2: Comparison -->
+    <div class="insight-panel" id="panel-comparison">
+      <div class="insight-split">
+        <div class="insight-figure">
+          <img src="static/images/sketch_comparison.png" alt="Method comparison sketch">
+        </div>
+        <div class="insight-explain">
+          <div class="insight-point">
+            <div class="insight-point-tag">(a-c)</div>
+            <h4>Prior generative approaches</h4>
+            <p>VAE/GAN (a) produce low-fidelity outputs. Diffusion SCM (b) and autoencoders (c) disentangle only in auxiliary encoders, leaving diffusion latents entangled.</p>
+          </div>
+          <div class="insight-point">
+            <div class="insight-point-tag">(d)</div>
+            <h4>T2I-based editing</h4>
+            <p>Heavy prompt engineering without explicit causal mechanisms. Attention maps misguide edits.</p>
+          </div>
+          <div class="insight-point">
+            <div class="insight-point-tag">(e-f)</div>
+            <h4>Causal-Adapter (Ours)</h4>
+            <p>Injects causal attributes into learnable token embeddings with contrastive optimization, achieving both disentanglement and high fidelity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     METHOD — Three-stage pipeline
+     ============================================================ -->
+<section class="method-section">
+  <h2>Method</h2>
+  <p class="method-subtitle">Causal-Adapter operates in three stages, plugging into a frozen T2I diffusion backbone.</p>
+
+  <!-- Full framework figure -->
+  <div class="method-figure-wrap fade-up">
+    <img src="static/images/framework.png" alt="Causal-Adapter framework overview" class="method-fig">
+    <!-- Highlight overlays — positions (top/left/width/height as % of figure) can be adjusted -->
+    <div class="method-highlight" id="hl-stage-1" style="top:28%;left:3%;width:30%;height:40%;"></div>
+    <div class="method-highlight" id="hl-stage-2" style="top:28%;left:29%;width:30%;height:40%;"></div>
+    <div class="method-highlight" id="hl-stage-3" style="top:28%;left:47%;width:53%;height:40%;"></div>
+  </div>
+
+  <!-- Three stages -->
+  <div class="method-stages fade-up">
+    <div class="method-stage" data-highlight="hl-stage-1">
+      <div class="stage-number">1</div>
+      <div class="stage-content">
+        <h4>Causal Mechanism Modeling</h4>
+        <p>Given a causal graph G and semantic attributes Y, each causal mechanism f<sub>i</sub> is modeled via a nonlinear MLP with additive noise. The SCM propagates interventions to all downstream variables.</p>
+      </div>
+    </div>
+    <div class="stage-connector"><i class="fas fa-long-arrow-alt-right"></i></div>
+    <div class="method-stage" data-highlight="hl-stage-2">
+      <div class="stage-number">2</div>
+      <div class="stage-content">
+        <h4>Prompt-Aligned Injection (PAI)</h4>
+        <p>Causal attributes are injected into learnable token embeddings that replace placeholder tokens in the prompt. This aligns causal semantics with spatial features in cross-attention.</p>
+      </div>
+    </div>
+    <div class="stage-connector"><i class="fas fa-long-arrow-alt-right"></i></div>
+    <div class="method-stage" data-highlight="hl-stage-3">
+      <div class="stage-number">3</div>
+      <div class="stage-content">
+        <h4>Conditioned Token Contrastive Loss</h4>
+        <p>An InfoNCE-based loss pulls same-attribute tokens together and pushes different-attribute tokens apart, enforcing disentanglement and reducing spurious correlations.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="method-inference">At inference, <strong>abduction-action-prediction</strong> is performed via DDIM inversion. Optional <strong>Attention Guidance (AG)</strong> localizes edits to intervened tokens while preserving identity.</p>
+</section>
+
+<!-- ============================================================
+     INTERACTIVE DEMOS — with SVG causal graphs
+     ============================================================ -->
+<section class="demo-section">
+  <h2>Interactive Counterfactual Traversals</h2>
+  <p class="demo-subtitle">Drag the sliders to intervene on causal attributes and observe how counterfactual images change in response.</p>
+
+  <!-- Row 1: Pendulum -->
+  <div class="demo-row fade-up">
+    <div class="demo-illustration">
+      <!-- SVG Causal Graph: Pendulum -->
+      <div class="causal-graph-card">
+        <div class="cg-title">Pendulum</div>
+        <svg class="cg-svg" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-pend" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#888"/></marker>
+          </defs>
+          <!-- Nodes: P, L (top, highlighted), SL, SP (mid), X (bottom) -->
+          <circle cx="55" cy="45" r="24" class="cg-node cg-node-accent"/>
+          <text x="55" y="49" class="cg-label">P</text>
+          <circle cx="165" cy="45" r="24" class="cg-node cg-node-accent"/>
+          <text x="165" y="49" class="cg-label">L</text>
+          <circle cx="55" cy="140" r="24" class="cg-node"/>
+          <text x="55" y="144" class="cg-label">SL</text>
+          <circle cx="165" cy="140" r="24" class="cg-node"/>
+          <text x="165" y="144" class="cg-label">SP</text>
+          <circle cx="110" cy="225" r="24" class="cg-node"/>
+          <text x="110" y="229" class="cg-label">X</text>
+          <!-- Edges: P->SL, P->SP, P->X, L->SL, L->SP, L->X, SL->X, SP->X -->
+          <line x1="55" y1="69" x2="55" y2="114" class="cg-edge" marker-end="url(#arrow-pend)"/>
+          <line x1="72" y1="63" x2="148" y2="122" class="cg-edge" marker-end="url(#arrow-pend)"/>
+          <line x1="64" y1="68" x2="102" y2="203" class="cg-edge" marker-end="url(#arrow-pend)"/>
+          <line x1="148" y1="63" x2="72" y2="122" class="cg-edge" marker-end="url(#arrow-pend)"/>
+          <line x1="165" y1="69" x2="165" y2="114" class="cg-edge" marker-end="url(#arrow-pend)"/>
+          <line x1="156" y1="68" x2="118" y2="203" class="cg-edge" marker-end="url(#arrow-pend)"/>
+          <line x1="68" y1="160" x2="97" y2="205" class="cg-edge" marker-end="url(#arrow-pend)"/>
+          <line x1="152" y1="160" x2="123" y2="205" class="cg-edge" marker-end="url(#arrow-pend)"/>
+        </svg>
+        <div class="cg-legend">
+          <span><strong>P</strong> Pendulum</span>
+          <span><strong>L</strong> Light</span>
+          <span><strong>SL</strong> Shadow Len</span>
+          <span><strong>SP</strong> Shadow Pos</span>
+          <span><strong>X</strong> Image</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-question">What if the <span class="hl">pendulum angle</span> had been different?</div>
+      <img class="demo-preview" id="img_pend" src="static/images/traverse/pendulum/pendulum_13.png" alt="Pendulum traversal">
+      <input class="demo-slider" id="range_pend" type="range"
+        min="0" max="29" value="13"
+        data-target-img="img_pend"
+        data-prefix="static/images/traverse/pendulum/pendulum_"
+        data-suffix=".png"
+        data-preload-radius="3"
+        data-preload-chunk="8"
+        data-preload-delay="30">
+      <div class="slider-labels"><span>-30&deg;</span><span>30&deg;</span></div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-question">What if the <span class="hl">light position</span> had been different?</div>
+      <img class="demo-preview" id="img_light" src="static/images/traverse/light/light_10.png" alt="Light traversal">
+      <input class="demo-slider" id="range_light" type="range"
+        min="0" max="29" value="10"
+        data-target-img="img_light"
+        data-prefix="static/images/traverse/light/light_"
+        data-suffix=".png"
+        data-preload-radius="3"
+        data-preload-chunk="8"
+        data-preload-delay="30">
+      <div class="slider-labels"><span>-1</span><span>1</span></div>
+    </div>
+  </div>
+
+  <!-- Row 2: CelebA -->
+  <div class="demo-row fade-up">
+    <div class="demo-illustration">
+      <!-- SVG Causal Graph: CelebA -->
+      <div class="causal-graph-card">
+        <div class="cg-title">CelebA</div>
+        <svg class="cg-svg" viewBox="0 0 220 260" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-cel" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#888"/></marker>
+          </defs>
+          <!-- Nodes: Age, Gen (top, highlighted), Brd, Bld (mid), X (bottom) -->
+          <circle cx="55" cy="45" r="24" class="cg-node cg-node-accent"/>
+          <text x="55" y="49" class="cg-label">A</text>
+          <circle cx="165" cy="45" r="24" class="cg-node cg-node-accent"/>
+          <text x="165" y="49" class="cg-label">G</text>
+          <circle cx="55" cy="140" r="24" class="cg-node"/>
+          <text x="55" y="144" class="cg-label">Br</text>
+          <circle cx="165" cy="140" r="24" class="cg-node"/>
+          <text x="165" y="144" class="cg-label">Bl</text>
+          <circle cx="110" cy="225" r="24" class="cg-node"/>
+          <text x="110" y="229" class="cg-label">X</text>
+          <!-- Edges: A->Br, A->Bl, G->Br, G->Bl, A->X, G->X, Br->X, Bl->X -->
+          <line x1="55" y1="69" x2="55" y2="114" class="cg-edge" marker-end="url(#arrow-cel)"/>
+          <line x1="72" y1="63" x2="148" y2="122" class="cg-edge" marker-end="url(#arrow-cel)"/>
+          <line x1="148" y1="63" x2="72" y2="122" class="cg-edge" marker-end="url(#arrow-cel)"/>
+          <line x1="165" y1="69" x2="165" y2="114" class="cg-edge" marker-end="url(#arrow-cel)"/>
+          <line x1="64" y1="68" x2="102" y2="203" class="cg-edge" marker-end="url(#arrow-cel)"/>
+          <line x1="156" y1="68" x2="118" y2="203" class="cg-edge" marker-end="url(#arrow-cel)"/>
+          <line x1="66" y1="162" x2="100" y2="206" class="cg-edge" marker-end="url(#arrow-cel)"/>
+          <line x1="154" y1="162" x2="120" y2="206" class="cg-edge" marker-end="url(#arrow-cel)"/>
+        </svg>
+        <div class="cg-legend">
+          <span><strong>A</strong> Age</span>
+          <span><strong>G</strong> Gender</span>
+          <span><strong>Br</strong> Beard</span>
+          <span><strong>Bl</strong> Bald</span>
+          <span><strong>X</strong> Image</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-question">What if the <span class="hl">human age</span> had been different?</div>
+      <img class="demo-preview" id="img_celeba_age" src="static/images/traverse/age/age_2.png" alt="CelebA age traversal">
+      <input class="demo-slider" id="range_celeba_age" type="range"
+        min="2" max="30" value="2"
+        data-target-img="img_celeba_age"
+        data-prefix="static/images/traverse/age/age_"
+        data-suffix=".png"
+        data-preload-radius="3"
+        data-preload-chunk="8"
+        data-preload-delay="30">
+      <div class="slider-labels"><span>Young</span><span>Old</span></div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-question">What if the <span class="hl">human gender</span> had been different?</div>
+      <img class="demo-preview" id="img_gender" src="static/images/traverse/gender/gender_2.png" alt="Gender traversal">
+      <input class="demo-slider" id="range_gender" type="range"
+        min="2" max="29" value="2"
+        data-target-img="img_gender"
+        data-prefix="static/images/traverse/gender/gender_"
+        data-suffix=".png"
+        data-preload-radius="3"
+        data-preload-chunk="8"
+        data-preload-delay="30">
+      <div class="slider-labels"><span>Male</span><span>Female</span></div>
+    </div>
+  </div>
+
+  <!-- Row 3: ADNI (Medical) -->
+  <div class="demo-row fade-up">
+    <div class="demo-illustration">
+      <!-- SVG Causal Graph: ADNI -->
+      <div class="causal-graph-card">
+        <div class="cg-title">ADNI Brain MRI</div>
+        <svg class="cg-svg" viewBox="0 0 220 280" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-adni" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#888"/></marker>
+          </defs>
+          <!-- Row 1: ApoE(40,38), Sex(110,38), Age(180,38) — Age highlighted -->
+          <circle cx="40" cy="38" r="20" class="cg-node"/>
+          <text x="40" y="42" class="cg-label" style="font-size:9px">ApoE</text>
+          <circle cx="110" cy="38" r="20" class="cg-node"/>
+          <text x="110" y="42" class="cg-label" style="font-size:11px">Sx</text>
+          <circle cx="180" cy="38" r="20" class="cg-node cg-node-accent"/>
+          <text x="180" y="42" class="cg-label" style="font-size:11px">A</text>
+          <!-- Row 2: Brain(110,115) -->
+          <circle cx="110" cy="115" r="20" class="cg-node"/>
+          <text x="110" y="119" class="cg-label" style="font-size:11px">B</text>
+          <!-- Row 3: Slice(40,188), Vent(180,188) — Vent highlighted -->
+          <circle cx="40" cy="188" r="20" class="cg-node"/>
+          <text x="40" y="192" class="cg-label" style="font-size:11px">S</text>
+          <circle cx="180" cy="188" r="20" class="cg-node cg-node-accent"/>
+          <text x="180" y="192" class="cg-label" style="font-size:11px">V</text>
+          <!-- Row 4: Image(110,258) -->
+          <circle cx="110" cy="258" r="20" class="cg-node"/>
+          <text x="110" y="262" class="cg-label" style="font-size:11px">X</text>
+          <!-- Edges: ApoE->B, Sx->B, A->B, B->V, B->X, S->X, V->X -->
+          <line x1="54" y1="53" x2="97" y2="100" class="cg-edge" marker-end="url(#arrow-adni)"/>
+          <line x1="110" y1="58" x2="110" y2="95" class="cg-edge" marker-end="url(#arrow-adni)"/>
+          <line x1="167" y1="53" x2="124" y2="100" class="cg-edge" marker-end="url(#arrow-adni)"/>
+          <line x1="124" y1="129" x2="166" y2="174" class="cg-edge" marker-end="url(#arrow-adni)"/>
+          <line x1="110" y1="135" x2="110" y2="238" class="cg-edge" marker-end="url(#arrow-adni)"/>
+          <line x1="54" y1="202" x2="96" y2="244" class="cg-edge" marker-end="url(#arrow-adni)"/>
+          <line x1="166" y1="202" x2="124" y2="244" class="cg-edge" marker-end="url(#arrow-adni)"/>
+        </svg>
+        <div class="cg-legend">
+          <span><strong>ApoE</strong></span>
+          <span><strong>Sx</strong> Sex</span>
+          <span><strong>A</strong> Age</span>
+          <span><strong>B</strong> Brain</span>
+          <span><strong>S</strong> Slice</span>
+          <span><strong>V</strong> Ventricle</span>
+          <span><strong>X</strong> Image</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-question">What if the <span class="hl">brain age</span> had been different?</div>
+      <img class="demo-preview" id="img_adni_age" src="static/images/traverse/adni_age/adni_age_31.png" alt="ADNI age traversal">
+      <input class="demo-slider" id="range_adni_age" type="range"
+        min="1" max="31" value="31"
+        data-target-img="img_adni_age"
+        data-prefix="static/images/traverse/adni_age/adni_age_"
+        data-suffix=".png"
+        data-preload-radius="3"
+        data-preload-chunk="8"
+        data-preload-delay="30">
+      <div class="slider-labels"><span>55</span><span>90</span></div>
+    </div>
+    <div class="demo-card">
+      <div class="demo-question">What if the <span class="hl">ventricle volume</span> had been different?</div>
+      <img class="demo-preview" id="img_vent" src="static/images/traverse/vent/vent_15.png" alt="Ventricle volume traversal">
+      <input class="demo-slider" id="range_vent" type="range"
+        min="1" max="30" value="15"
+        data-target-img="img_vent"
+        data-prefix="static/images/traverse/vent/vent_"
+        data-suffix=".png"
+        data-preload-radius="3"
+        data-preload-chunk="8"
+        data-preload-delay="30">
+      <div class="slider-labels"><span>0</span><span>1</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     EXPERIMENTAL RESULTS
+     ============================================================ -->
+<section class="results-section">
+  <div class="results-inner">
+    <span class="section-tag">Experiments</span>
+    <h2>State-of-the-Art Performance</h2>
+    <p class="results-subtitle">Evaluated on 4 datasets: Pendulum (synthetic), CelebA, CelebA-HQ (faces), and ADNI (brain MRI).</p>
+
+    <div class="results-grid">
+      <!-- Pendulum -->
+      <div class="result-card">
+        <div class="result-dataset">Pendulum</div>
+        <div class="result-metric-row">
+          <div class="result-metric">
+            <span class="result-value">91%</span>
+            <span class="result-label">MAE Reduction</span>
+          </div>
+        </div>
+        <p class="result-detail">Accurate continuous control over pendulum angle, light, shadow length, and shadow position with causal propagation.</p>
+      </div>
+      <!-- CelebA -->
+      <div class="result-card">
+        <div class="result-dataset">CelebA</div>
+        <div class="result-metric-row">
+          <div class="result-metric">
+            <span class="result-value">81%</span>
+            <span class="result-label">FID Reduction</span>
+          </div>
+          <div class="result-metric">
+            <span class="result-value">86%</span>
+            <span class="result-label">LPIPS Reduction</span>
+          </div>
+        </div>
+        <p class="result-detail">Best realism and composition. F1 scores: 99.9% (gender), 58.5% (age), 52.1% (beard).</p>
+      </div>
+      <!-- ADNI -->
+      <div class="result-card">
+        <div class="result-dataset">ADNI Brain MRI</div>
+        <div class="result-metric-row">
+          <div class="result-metric">
+            <span class="result-value">87%</span>
+            <span class="result-label">FID Reduction</span>
+          </div>
+          <div class="result-metric">
+            <span class="result-value">50%</span>
+            <span class="result-label">MAE Reduction</span>
+          </div>
+        </div>
+        <p class="result-detail">High-fidelity MRI generation with precise attribute control on age, brain volume, and ventricle volume.</p>
+      </div>
+      <!-- CelebA-HQ -->
+      <div class="result-card">
+        <div class="result-dataset">CelebA-HQ</div>
+        <div class="result-metric-row">
+          <div class="result-metric">
+            <span class="result-value">Best</span>
+            <span class="result-label">Reversibility</span>
+          </div>
+          <div class="result-metric">
+            <span class="result-value">Best</span>
+            <span class="result-label">Identity Pres.</span>
+          </div>
+        </div>
+        <p class="result-detail">State-of-the-art on eyeglasses and smiling interventions with strong reversibility and identity preservation.</p>
+      </div>
+    </div>
+
+    <p class="results-note">Metrics: <strong>Effectiveness</strong> (F1/MAE) | <strong>Realism</strong> (FID) | <strong>Composition</strong> (LPIPS/MAE) | <strong>Minimality</strong> (CLD)</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     BIBTEX
+     ============================================================ -->
+<section class="bibtex-section" id="BibTeX">
+  <div class="bibtex-wrapper">
+    <div class="bibtex-header">
+      <h2>BibTeX</h2>
+      <button class="copy-btn" id="copyBtn" onclick="copyBibTeX()">
+        <i class="fas fa-copy"></i>
+        <span class="copy-label">Copy</span>
+      </button>
+    </div>
+    <pre class="bibtex-code" id="bibtex-code">@article{tong2025causal,
   title={Causal-Adapter: Taming Text-to-Image Diffusion for Faithful Counterfactual Generation},
   author={Tong, Lei and Liu, Zhihua and Lu, Chaochao and Oglic, Dino and Diethe, Tom and Teare, Philip and Tsaftaris, Sotirios A and Jin, Chen},
   journal={arXiv preprint arXiv:2509.24798},
   year={2025}
-}</code></pre>
-    </div>
+}</pre>
+  </div>
 </section>
-<!--End BibTex citation -->
 
-<!-- ===== Footer Section (Optional) ===== -->
-  <footer class="footer has-text-centered" style="padding:2rem 10.5rem;">
-    <div class="content">
-      <p>
-        <strong>Causal-Adapter</strong> by <a href="https://leitong02.github.io/" target="_blank">Lei Tong</a> @ <a href="https://github.com/AstraZeneca" target="_blank">
-            Centre for AI, Data Science & Artificial Intelligence, BioPharmaceuticals R&D, AstraZeneca, Cambridge, UK</a>.
-        </p>
-        <p>
-        Built upon open-source code from the broader academic community.
-      </p>
-    </div>
-  </footer>
+<!-- ============================================================
+     FOOTER — Clean white, matching header
+     ============================================================ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-title">Causal-Adapter</div>
+    <p>
+      <a href="https://leitong02.github.io/" target="_blank">Lei Tong</a> @ CAI, AstraZeneca, Cambridge
+      &nbsp;&amp;&nbsp;
+      <a href="https://zhihualiued.github.io/" target="_blank">Zhihua Liu</a> @ CHAI Hub, University of Edinburgh
+    </p>
+    <p class="footer-credit">
+      Built upon the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+    </p>
+  </div>
+</footer>
 
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>
