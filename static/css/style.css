@@ -91,6 +91,18 @@ img { max-width: 100%; height: auto; }
   margin-bottom: .8rem;
 }
 
+/* ---- Venue badge ---- */
+  .venue-badge {
+    display: inline-block;
+    background: var(--c-amber);
+    color: white !important;
+    padding: 5px 18px;
+    border-radius: 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.03em;
+  }
+
 .hero-section h1 {
   font-family: var(--font-title);
   font-size: clamp(1.6rem, 3.2vw, 2.2rem);
