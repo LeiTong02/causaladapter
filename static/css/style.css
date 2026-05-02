@@ -950,6 +950,102 @@ pre.bibtex-code {
 }
 
 /* ================================================================
+   MORE WORKS — Related Projects
+   ================================================================ */
+.more-works-section {
+  padding: 4rem 2rem;
+  background: var(--c-surface);
+}
+
+.more-works-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.more-works-inner h2 {
+  font-family: var(--font-title);
+  font-size: 2rem;
+  color: var(--c-black);
+  margin: .3rem 0 .6rem;
+}
+
+.more-works-subtitle {
+  color: var(--c-grey-600);
+  font-size: .95rem;
+  margin-bottom: 2rem;
+}
+
+.more-works-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  text-align: left;
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  background: var(--c-white);
+  border: 1px solid var(--c-grey-100);
+  border-radius: var(--radius);
+  transition: box-shadow .3s var(--ease);
+}
+
+.more-works-item:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.more-works-thumb-link {
+  flex-shrink: 0;
+}
+
+.more-works-thumb {
+  width: 160px;
+  height: 100px;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1px solid var(--c-grey-100);
+  background: var(--c-surface);
+}
+
+.more-works-body {
+  flex: 1;
+  min-width: 0;
+}
+
+a.more-works-title {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: .95rem;
+  color: var(--c-amber-dark);
+  text-decoration: none;
+  line-height: 1.4;
+  transition: color .2s var(--ease);
+}
+
+a.more-works-title:hover {
+  color: var(--c-amber);
+}
+
+.more-works-desc {
+  font-size: .85rem;
+  color: var(--c-grey-600);
+  line-height: 1.55;
+  margin: .4rem 0 0;
+}
+
+@media (max-width: 600px) {
+  .more-works-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .more-works-thumb {
+    width: 100%;
+    height: auto;
+    max-width: 280px;
+  }
+}
+
+/* ================================================================
    FOOTER — Clean white, matching hero
    ================================================================ */
 .site-footer {
